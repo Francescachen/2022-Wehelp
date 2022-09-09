@@ -141,3 +141,7 @@ h1{
 .accordion__input:checked ~ .accordion__content{
     display: block;
 }
+
+
+
+
