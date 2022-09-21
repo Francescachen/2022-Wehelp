@@ -43,6 +43,7 @@ body {
     background-color: rgb(178, 225, 243);
     width:100%;
     height:300px;
+    margin-bottom: 10px;
 }
 
 .welcome{
@@ -50,6 +51,7 @@ body {
     font-size:2em;
     text-align: center;
     width:100%;
+    
 
 }
 
@@ -59,7 +61,6 @@ body {
 .header{
     max-width:1200px; 
     margin:auto;
-    background:#f2f2f2;
     overflow: hidden;
     display:flex; /*解決justify-content doesnt work*/
     justify-content: space-between;
@@ -72,7 +73,7 @@ body {
     flex-direction: flex;
     max-width:578px; 
     height:50px;
-    background:#fff;
+    background:rgb(178, 225, 243);
     float:left;
     margin:10px;
   }
@@ -90,7 +91,6 @@ body {
   .container{
     max-width:1200px; 
     margin:auto;
-    background:#f2f2f2;
     overflow:auto;
     display:flex;
     flex-direction: row;
@@ -103,6 +103,7 @@ body {
     border:1px solid #ccc;
     float:left;
     width:278px;
+    background-color: rgb(178, 225, 243);
  
   }
   
@@ -112,7 +113,7 @@ body {
   }
   
   .desc{
-    background:#fff;
+    background:rgb(178, 225, 243);
     padding:10px;
     text-align: center;
     
@@ -170,5 +171,3 @@ body {
     margin:15px auto;
     width:90%;
   }
-
-  
