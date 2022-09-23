@@ -123,7 +123,7 @@ section {
 
 .text-box{
  position: absolute;
- left:0px;
+ left:1px;
  right:-1px;
  bottom:1px;
  padding:5px 5px;
