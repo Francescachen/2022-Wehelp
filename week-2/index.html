@@ -50,9 +50,7 @@
     // 一般形式為 func(a)(b, c) 要印出 a+(b*c) 的結果
 
     //第四題
-    // Online Javascript Editor for free
-// Write, Edit and Run your Javascript code using JS Online Compiler
-function maxProduct(nums){
+    function maxProduct(nums){
     let largestNums = nums[0];
     let secondLargestNums;
     for (let i = 1; i < nums.length; ++i) {
@@ -83,26 +81,26 @@ function maxProduct(nums){
 }
 
         
-maxProduct([5, 20, 2, 6]) // 得到 120
-maxProduct([10, -20, 0, 3]) // 得到 30
-maxProduct([10, -20, 0, -3]) // 得到 60
-maxProduct([-1, 2]) // 得到 -2
-maxProduct([-1, 0, 2]) // 得到 0
-maxProduct([5,-1, -2, 0]) // 得到 2
-maxProduct([-5, -2]) // 得到 10
+    maxProduct([5, 20, 2, 6]) // 得到 120
+    maxProduct([10, -20, 0, 3]) // 得到 30
+    maxProduct([10, -20, 0, -3]) // 得到 60
+    maxProduct([-1, 2]) // 得到 -2
+    maxProduct([-1, 0, 2]) // 得到 0
+    maxProduct([5,-1, -2, 0]) // 得到 2
+    maxProduct([-5, -2]) // 得到 10
 
-//第五題
-function twoSum(nums, target){
-  for (let i = 0; i < nums.length - 1; i++) {
+    //第五題
+    function twoSum(nums, target){
+    for (let i = 0; i < nums.length - 1; i++) {
     for (let j = i + 1; j < nums.length; j++) {
       if (nums[i] + nums[j] === target) {
         return [i, j];
       }
     }
-  }
-}
-let result=twoSum([2, 11, 7, 15], 9);
-console.log(result); // show [0, 2] because nums[0]+nums[2] is 9
+    }
+    }
+    let result=twoSum([2, 11, 7, 15], 9);
+    console.log(result); // show [0, 2] because nums[0]+nums[2] is 9
 
 
 
