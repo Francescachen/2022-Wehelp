@@ -76,15 +76,15 @@ def maxProduct(nums):
     return print(smallestNums * secondSmallestNums)
 
 
-maxProduct([5, 20, 2, 6]) # 得到 120
-maxProduct([10, -20, 0, 3]) # 得到 30
-maxProduct([10, -20, 0, -3]) # 得到 60
-maxProduct([-1, 2]) # 得到 -2
-maxProduct([-1, 0, 2]) # 得到 0
-maxProduct([5,-1, -2, 0]) # 得到 2
-maxProduct([-5, -2]) # 得到 10
+maxProduct([5, 20, 2, 6]) #  120
+maxProduct([10, -20, 0, 3]) #  30
+maxProduct([10, -20, 0, -3]) #  60
+maxProduct([-1, 2]) #  -2
+maxProduct([-1, 0, 2]) #  0
+maxProduct([5,-1, -2, 0]) #  2
+maxProduct([-5, -2]) #  10
 
-#第五題
+#Q5
 def twoSum(nums, target):
   for i, num in enumerate(nums):
         for j in range(i + 1, len(nums)):

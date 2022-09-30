@@ -20,10 +20,22 @@
 
 
     //第二題
-    
-
-
- 
+    function avg(data){
+    let sum = 0;
+    for (let i = 0; i < data.employees.length ; i++){
+    if (data.employees[i].manager === false){
+        sum = sum + data.employees[i].salary
+        
+    }
+    }
+    let count = 0
+    for (let i = 0; i < data.employees.length ; i++){
+    if (data.employees[i].manager === false){
+        count = i
+    }
+    }
+    console.log(sum/count)
+    }
 
     //第三題
     function func(a){
