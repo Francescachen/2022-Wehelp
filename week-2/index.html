@@ -51,42 +51,34 @@
 
     //第四題
     function maxProduct(nums){
-        let largestNums = nums[0];
-        let secondLargestNums;
-        for (let i = 1; i < nums.length; ++i) {
-            if (nums[i] > largestNums) {
-                secondLargestNums = largestNums;
-                largestNums = nums[i];
-            }else if (nums[i] > secondLargestNums || typeof secondLargestNums === 'undefined') {
-        secondLargestNums = nums[i]
-        }
-    }
-
-
-    let n = nums.length;
-    // sorting the array using
-    // in-built sort function
-    nums.sort();
- 
-    // printing the desired element
-    smallestNums = nums[0];
-    secondSmallestNums = nums[1];
-
-
-    if (largestNums * secondLargestNums > smallestNums * secondSmallestNums){
-        console.log(largestNums * secondLargestNums);
+    let max = Math.max.apply(null, nums), // get the max of the array
+        maxi = nums.indexOf(max);
+    nums[maxi] = -Infinity; // replace max in the array with -infinity
+    let secondMax = Math.max.apply(null, nums); // get the new max 
+    nums[maxi] = max;
+    secondMax
+    
+    let min = Math.min.apply(null, nums), // get the min of the array
+        mini = nums.indexOf(min);
+    nums[mini] = Infinity; // replace min in the array with infinity
+    let secondMin = Math.min.apply(null, nums); // get the new mix 
+    nums[mini] = min;
+    secondMin
+    
+    if (max * secondMax > min * secondMin){
+        console.log(max * secondMax);
     }else{
-        return console.log(smallestNums * secondSmallestNums);
+        return console.log(min * secondMin);
     }
-    }
+}
 
-        
+
     maxProduct([5, 20, 2, 6]) // 得到 120
     maxProduct([10, -20, 0, 3]) // 得到 30
     maxProduct([10, -20, 0, -3]) // 得到 60
     maxProduct([-1, 2]) // 得到 -2
-    maxProduct([-1, 0, 2]) // 得到 0
-    maxProduct([5,-1, -2, 0]) // 得到 2
+    maxProduct([-1, 0, 2]) // 得到 0 或 -0
+    maxProduct([5, -1, -2, 0]) // 得到 2
     maxProduct([-5, -2]) // 得到 10
 
     //第五題
