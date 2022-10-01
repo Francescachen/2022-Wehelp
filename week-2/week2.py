@@ -91,7 +91,8 @@ maxProduct([-1, 2]) # 得到 -2
 maxProduct([-1, 0, 2]) # 得到 0
 maxProduct([5,-1, -2, 0]) # 得到 2
 maxProduct([-5, -2]) # 得到 10
-#Q5
+
+#第五題
 def twoSum(nums, target):
   for i, num in enumerate(nums):
         for j in range(i + 1, len(nums)):
