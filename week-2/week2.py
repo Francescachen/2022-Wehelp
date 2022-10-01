@@ -61,29 +61,36 @@ func(-3)(2, 9) # 你補完的函式能印出 -3+(2*9) 的結果 15
 
 #第四題
 def maxProduct(nums):
-  
-  sortedNums = sorted(nums, reverse=True)  # [5, 20, 2, 6]
+    largestNums = float('-inf')
+    secondLargestNums = float('-inf')
+    for x in nums:
+        if x > largestNums:
+            secondLargestNums = largestNums
+            largestNums = x
+        elif x > secondLargestNums and x != largestNums:
+            secondLargestNums = x
+            
+    
+    smallestNums = float('inf')
+    secondSmallestNums = float('inf')
+    for y in nums:
+        if y <= smallestNums:
+            smallestNums, secondSmallestNums = y, smallestNums
+        elif y < secondSmallestNums:
+            secondSmallestNums = y
 
-  largestNums = sortedNums[0]  # 20
-  secondLargestNums = sortedNums[1]  # 6
+    if largestNums * secondLargestNums > smallestNums * secondSmallestNums:
+        print(largestNums * secondLargestNums)
+    else:
+        return print(smallestNums * secondSmallestNums)
 
-  smallestNums = sortedNums[-1]
-  secondSmallestNums = sortedNums[-2]
-
-  if largestNums * secondLargestNums > smallestNums * secondSmallestNums:
-    print(largestNums * secondLargestNums)
-  else:
-    return print(smallestNums * secondSmallestNums)
-
-
-maxProduct([5, 20, 2, 6]) #  120
-maxProduct([10, -20, 0, 3]) #  30
-maxProduct([10, -20, 0, -3]) #  60
-maxProduct([-1, 2]) #  -2
-maxProduct([-1, 0, 2]) #  0
-maxProduct([5,-1, -2, 0]) #  2
-maxProduct([-5, -2]) #  10
-
+maxProduct([5, 20, 2, 6]) # 得到 120
+maxProduct([10, -20, 0, 3]) # 得到 30
+maxProduct([10, -20, 0, -3]) # 得到 60
+maxProduct([-1, 2]) # 得到 -2
+maxProduct([-1, 0, 2]) # 得到 0
+maxProduct([5,-1, -2, 0]) # 得到 2
+maxProduct([-5, -2]) # 得到 10
 #Q5
 def twoSum(nums, target):
   for i, num in enumerate(nums):
