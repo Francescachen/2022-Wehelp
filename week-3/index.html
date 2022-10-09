@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">My Website</div>
+      <div class="desktop-menu">
+        <div class="desktop-menu-item">Item1</div>
+        <div class="desktop-menu-item">Item2</div>
+        <div class="desktop-menu-item">Item3</div>
+        <div class="desktop-menu-item">Item4</div>
+      </div>
+      <div class="mobile-menu">
+        <img src="menu.png" width="30px" height="22px" />
+      </div>
+    </nav>
+
+    <div class="middle">
+      <b class="welcome">Welcome to MyHome</b>
+    </div>
+
+    <!--task3 -->
+    <div class="header"></div>
+
+    <div class="container"></div>
+
+    <div class="button"></div>
+
+    <script>
+      let index = 0;
+      function addFirstArea(dataset) {
+        // 使用fetch到的資料集以及index, 獲取我想要的資料.
+        // 將資料中的景點名稱(title), 圖片網址(imgUrl)個別存取成變數.
+        let data = dataset["result"]["results"][index];
+        let title = data["stitle"];
+        // 因為原本資料格式是一個string, 先用split將string分隔開成一個array, 再獲取開頭第一個資料.
+        let imgUrl = data["file"].toLowerCase().split(".jpg")[0] + ".jpg";
+        index = index + 1;
+
+        // design js DOM
+        // 依照下面html text, 透過createElement()創建html tag -> setAttribute()設定class和css.
+        // 之後再透過appendChild()將全部tag包裝起來, 像是寫一般html的概念.
+
+        // <section class="section">
+        //   <img src="https://ppt.cc/fYojCx" width="80px" class="image" />
+        //   <div class="content">discription1</div>
+        // </section>;
+        const newSection = document.createElement("section");
+        newSection.setAttribute("class", "section");
+
+        const newImage = document.createElement("img");
+        newImage.setAttribute("src", `${imgUrl}`);
+        newImage.setAttribute("class", "image");
+        newImage.setAttribute("width", "80px");
+
+        const newDiv = document.createElement("div");
+        newDiv.setAttribute("class", "content");
+        newDiv.innerText = `${title}`;
+
+        newSection.appendChild(newImage);
+        newSection.appendChild(newDiv);
+
+        // 將包住newSection的div找出來, 再appendChild()包在一起
+        let first = document.getElementsByClassName("header");
+        first[0].appendChild(newSection);
+      }
+
+      function addSecondArea(dataset) {
+        // 使用fetch到的資料集以及index, 獲取我想要的資料.
+        // 將資料中的景點名稱(title), 圖片網址(imgUrl)個別存取成變數.
+        let data = dataset["result"]["results"][index];
+        let title = data["stitle"];
+        // 因為原本資料格式是一個string, 先用split將string分隔開成一個array, 再獲取開頭第一個資料.
+        let imgUrl = data["file"].toLowerCase().split(".jpg")[0] + ".jpg";
+        index = index + 1;
+
+        // design js DOM
+        // 參考下面html text
+        // <div class="gallery">
+        //   <img src="https://ppt.cc/fYojCx" width="100px" />
+        //   <div class="desc">description1</div>
+        // </div>;
+        const newSection = document.createElement("div");
+        newSection.setAttribute("class", "gallery");
+
+        const newImage = document.createElement("img");
+        newImage.setAttribute("src", `${imgUrl}`);
+
+        const newDiv = document.createElement("div");
+        newDiv.setAttribute("class", "desc");
+        newDiv.innerText = `${title}`;
+
+        newSection.appendChild(newImage);
+        newSection.appendChild(newDiv);
+
+        // 將包住newSection的div找出來, 再appendChild()包在一起
+        let first = document.getElementsByClassName("container");
+        first[0].appendChild(newSection);
+      }
+
+      // 使用前面創建的兩個function, 以及fetch(), 顯示初始畫面.
+      function loadStartPage() {
+        fetch(
+          "https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json"
+        )
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (dataset) {
+            addFirstArea(dataset);
+            addFirstArea(dataset);
+            for (let i = 0; i < 8; i++) {
+              addSecondArea(dataset);
+            }
+          });
+
+        // 創建 load more 按鈕, 原理和前面定義的方法一樣, 除了後面的事件處理器
+        let button = document.createElement("button");
+        button.innerText = "Load More";
+
+        // 事件處理器意指接收到使用者的指令或動作後才會執行特定的處理器function
+        button.addEventListener("click", handleLoadMore);
+
+        let first = document.getElementsByClassName("button");
+        first[0].appendChild(button);
+      }
+
+      function handleLoadMore() {
+        fetch(
+          "https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json"
+        )
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (dataset) {
+            for (let i = 0; i < 8; i++) {
+              addSecondArea(dataset);
+            }
+          });
+      }
+    </script>
+    <script>
+      // ------------主程式------------------
+      loadStartPage();
+    </script>
+  </body>
+</html>
