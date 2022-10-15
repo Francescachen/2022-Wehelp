@@ -36,6 +36,9 @@ def signOut():
 
 @app.route("/member")
 def member():
+    status = session.get("login")
+    if status == "no":
+        return redirect("/")
     return render_template("sucess.html")
 
 
