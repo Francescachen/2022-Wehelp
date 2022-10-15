@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="head">
+        <h1>失敗頁面</h1>
+    </div>
+    <script text="text/javascript">
+        let url = location.href
+        let para = url.split("=")
+        let msg = decodeURI(para[1])
+
+        let h2 = document.createElement("h2")
+        h2.innerText = msg
+
+        document.body.appendChild(h2)
+    </script>
+</body>
+
+</html>
