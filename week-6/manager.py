@@ -3,14 +3,14 @@ import mysql.connector
 
 app = Flask(__name__)
 
-app.config["SECRET_KEY"] = "sdlkjg!4654@@@%"
+app.config["SECRET_KEY"] = " "
 
 
 def mysql_conn():
     connection  = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="francyh0511",
+        password=" ",
         database="website", 
     )
     cursor = connection.cursor()
