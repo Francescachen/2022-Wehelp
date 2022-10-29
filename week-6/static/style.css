@@ -1,0 +1,16 @@
+body {
+    margin: -28px 0;
+    justify-content: center;
+    text-align: center
+}
+
+.head {
+    background-color: rgb(29, 88, 147);
+    color: white;
+}
+
+h1 {
+    background-color: rgb(29, 88, 147);
+    font-size: 40px;
+    line-height: 110px;
+}
