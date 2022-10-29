@@ -10,8 +10,8 @@ def mysql_conn():
     connection  = mysql.connector.connect(
         host="127.0.0.1",
         database="website",
-        user="test",
-        password="123456789",
+        user="",
+        password="",
         port="3306"    
     )
     cursor = connection.cursor()
