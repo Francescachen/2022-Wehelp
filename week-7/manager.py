@@ -82,7 +82,7 @@ def signUp():
             connection.commit()
             cursor.close()
             connection.close()
-            return redirect(url_for('login',message="帳號註冊成功"))
+            return redirect(url_for('login',message='帳號註冊成功'))
         else:
             cursor.close()
             connection.close()
@@ -124,7 +124,7 @@ def message():
 def error(message=None):
     return render_template('error.html',message=message)
 
-@app.route('/api/member',methods=["GET"])
+@app.route('/api/member',methods=['GET'])
 def member_search():
     resp_datas = {
         'data':{}
@@ -179,7 +179,7 @@ def member_update():
             connection.close()
     else:
         resp_datas = {
-                "error":True,
+                'error':True,
             }
     return jsonify(resp_datas)
 
