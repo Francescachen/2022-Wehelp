@@ -7,7 +7,7 @@ app.config['SECRET_KEY'] = 'sdlkjg!4654@@@%'
 def mysql_conn():
     connection  = mysql.connector.connect(
         user='root',
-        password='francyh0511',
+        password='',
         host='localhost',
         database='website', 
     )
