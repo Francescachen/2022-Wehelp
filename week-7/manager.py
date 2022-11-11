@@ -82,7 +82,7 @@ def signUp():
             connection.commit()
             cursor.close()
             connection.close()
-            return redirect(url_for('login',message="帳號註冊成功"))
+            return redirect(url_for('login',message='帳號註冊成功'))
         else:
             cursor.close()
             connection.close()
